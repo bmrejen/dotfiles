@@ -1,5 +1,8 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Theme
+setopt prompt_subst
+ZSH_THEME="robbyrussell"
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+=' %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZDOTDIR=$HOME
@@ -10,11 +13,6 @@ setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
-# Theme
-setopt prompt_subst
-ZSH_THEME="robbyrussell"
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -34,6 +32,8 @@ _comp_options+=(globdots)		# Include hidden files.
 # Colors
 autoload -Uz colors && colors
 
+
+
 # Plugins
 source $HOME/zsh-functions
 source $ZSH/oh-my-zsh.sh
@@ -50,4 +50,5 @@ source $ZSH/custom/plugins/you-should-use/you-should-use.plugin.zsh
 source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
 source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
+
 
