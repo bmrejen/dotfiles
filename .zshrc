@@ -1,9 +1,3 @@
-# Theme
-setopt prompt_subst
-ZSH_THEME="robbyrussell"
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
-
 export ZSH="$HOME/.oh-my-zsh"
 export ZDOTDIR=$HOME
 
@@ -23,10 +17,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 
-# zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
 
-# compinit
+compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # Colors
@@ -36,19 +30,25 @@ autoload -Uz colors && colors
 
 # Plugins
 source $HOME/zsh-functions
+
+
+#source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #load this before substring-search
+#source $ZSH/plugins/zsh-autopair/autopair.zsh
+
+#source $ZSH/plugins/history/history.plugin.zsh
+#source $ZSH/plugins/git/git.plugin.zsh
+#source $ZSH/plugins/dirhistory/dirhistory.plugin.zsh
+#source $ZSH/plugins/web-search/web-search.plugin.zsh
+#source $ZSH/plugins/last-working-dir/last-working-dir.plugin.zsh
+#source $ZSH/custom/plugins/you-should-use/you-should-use.plugin.zsh
+#source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
+#source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
+
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #load this before substring-search
-source $HOME/plugins/zsh-autopair/autopair.zsh
-
-source $ZSH/plugins/history/history.plugin.zsh
-source $ZSH/plugins/git/git.plugin.zsh
-source $ZSH/plugins/dirhistory/dirhistory.plugin.zsh
-source $ZSH/plugins/web-search/web-search.plugin.zsh
-source $ZSH/plugins/last-working-dir/last-working-dir.plugin.zsh
-source $ZSH/custom/plugins/you-should-use/you-should-use.plugin.zsh
-source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
-source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
-
-
+# Theme
+setopt prompt_subst
+ZSH_THEME="robbyrussell"
+PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
+	
