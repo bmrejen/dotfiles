@@ -26,29 +26,35 @@ _comp_options+=(globdots)		# Include hidden files.
 # Colors
 autoload -Uz colors && colors
 
-
+#Aliases
+alias cat="bat"		# install bat with Choco
 
 # Plugins
 source $HOME/zsh-functions
 
+# Require install 
+source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
 
-#source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #load this before substring-search
-#source $ZSH/plugins/zsh-autopair/autopair.zsh
+source $ZSH/custom/plugins/zsh-autopair/autopair.zsh
+source $ZSH/custom/plugins/you-should-use/you-should-use.plugin.zsh
 
-#source $ZSH/plugins/history/history.plugin.zsh
-#source $ZSH/plugins/git/git.plugin.zsh
-#source $ZSH/plugins/dirhistory/dirhistory.plugin.zsh
-#source $ZSH/plugins/web-search/web-search.plugin.zsh
-#source $ZSH/plugins/last-working-dir/last-working-dir.plugin.zsh
-#source $ZSH/custom/plugins/you-should-use/you-should-use.plugin.zsh
-#source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
-#source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-#source $ZSH/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
+# Built-in to OMZ
+source $ZSH/plugins/history/history.plugin.zsh
+source $ZSH/plugins/git/git.plugin.zsh
+source $ZSH/plugins/dirhistory/dirhistory.plugin.zsh
+source $ZSH/plugins/web-search/web-search.plugin.zsh
+source $ZSH/plugins/last-working-dir/last-working-dir.plugin.zsh
 
+
+setopt prompt_subst
+ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
 # Theme
-setopt prompt_subst
-ZSH_THEME="robbyrussell"
-PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
-	
+
+PROMPT='%(?:$fg_bold[green]➜ :$fg_bold[red]➜ ) $fg[cyan]%d$reset_color $(git_prompt_info)'
+
+# Better keep these two lines at the bottom 
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/738
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #load this before substring-search
+source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
